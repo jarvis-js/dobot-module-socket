@@ -8,9 +8,8 @@ module.exports = function(bot, module) {
 function SocketAdapter(bot, module) {
 
 	var _this = this;
-	this.bot = bot;
 
-	app.listen(8888);
+	app.listen(module.options.port || 8888);
 
 	io.sockets.on('connection', function (socket) {
 		_this.channel = bot.createChannel(module.name + ':' + socket.id);
